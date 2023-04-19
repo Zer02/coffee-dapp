@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const { data: recentCoffee, isLoading: loadingRecentCoffee } = useContractRead(contract, "getAllCoffee");
 
   const [message, setMessage] = useState<string>("");
-  const [name, setName] = useState<string>("");  
+  const [name, setName] = useState<string>("");
   
   const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage((event.target.value));
@@ -30,14 +30,14 @@ const Home: NextPage = () => {
   };
 
   return (
-    <Container>
+    <Container maxW={"1200px"} w={"full"}>
       <Flex justifyContent={"space-between"} alignItems={"center"} py={"20px"} height={"80px"}>
         <Box>
           <Text fontWeight={"bold"}>Buy Me A Coffee</Text>
         </Box>
         <ConnectWallet />
       </Flex>
-      <SimpleGrid>
+      <SimpleGrid columns={2} spacing={10} mt={"40px"}>
         <Box>
           <Card>
             <CardBody>
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
                         </CardBody>
                       </Card>
                     )
-                  })}
+                  }).reverse()}
                 </Box>
               ) : (
                   <Stack>
